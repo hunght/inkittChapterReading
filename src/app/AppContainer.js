@@ -13,10 +13,13 @@ import { getChapterAsync } from './actions';
 
 export default compose(
   connect(({ app }) => ({ app }), { getChapterAsync }),
+  withState('isLoading', 'setLoading', false),
   withHandlers({
-    getChapterButtonPress: ({ getChapterAsync }) => () => {
-      getChapterAsync();
+    getChapterButtonPress: ({ getChapterAsync, setLoading }) => () => {
+      setLoading(true);
+      getChapterAsync(() => {
+        setLoading(false);
+      });
     }
-  }),
-  defaultProps({ app: null })
+  })
 )(App);
