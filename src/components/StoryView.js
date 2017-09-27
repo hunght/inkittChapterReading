@@ -1,10 +1,11 @@
 // @flow
 
 import React from 'react';
-import { View, Text, StyleSheet, WebView } from 'react-native';
+import HTMLView from '../common/htmlView';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 
 const StoryView = ({ chapter }: Object) => (
-  <View style={styles.container}>
+  <ScrollView style={styles.container}>
     <Text
       style={{
         alignSelf: 'center',
@@ -15,8 +16,9 @@ const StoryView = ({ chapter }: Object) => (
     >
       {chapter.name}
     </Text>
-    <WebView source={{ html: chapter.text }} />
-  </View>
+
+    <HTMLView value={chapter.text} />
+  </ScrollView>
 );
 
 export default StoryView;

@@ -1,20 +1,19 @@
 import { Observable } from 'rxjs';
-import { split, last, uniq, slice, splitAt } from 'ramda';
 import { getDefaultChapter } from '../services/inkitt';
 
-const handleError = error => {
+const handleError = (error) => {
   alert(error.toString());
 };
 
-export const getChapterAsync = (callback: ?Function) => dispatch => {
+export const getChapterAsync = (callback: ?Function) => (dispatch) => {
   Observable.from(getDefaultChapter()).subscribe(
-    result => {
+    (result) => {
       dispatch({
         type: 'GET_CHAPTER_ASYNC',
         data: result
       });
     },
-    error => {
+    (error) => {
       handleError(error);
     },
     () => {
