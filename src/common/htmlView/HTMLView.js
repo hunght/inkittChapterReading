@@ -47,7 +47,7 @@ const HtmlView = ({ RootComponent, style, element, rootComponentProps }) => (
 );
 
 export default compose(
-  withState('isElement', 'setElement', null),
+  withState('element', 'setElement', null),
   defaultProps({
     addLineBreaks: true,
     onError: console.error.bind(console),

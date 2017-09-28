@@ -1,10 +1,4 @@
-import {
-  compose,
-  withState,
-  withHandlers,
-  withProps,
-  defaultProps
-} from 'recompose';
+import { compose, withState, withHandlers } from 'recompose';
 
 import { connect } from 'react-redux';
 
