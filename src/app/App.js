@@ -1,7 +1,13 @@
 // @flow
 
 import React from 'react';
-import { View, StyleSheet, Button, ActivityIndicator } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Button,
+  ActivityIndicator,
+  Platform
+} from 'react-native';
 import StoryView from '../components/StoryView';
 
 const App = ({ getChapterButtonPress, isLoading, app }: Object) => (
@@ -27,6 +33,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20
+    marginTop: Platform.OS === 'ios' ? 20 : 0
   }
 });
